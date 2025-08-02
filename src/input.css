@@ -2,3 +2,8 @@
 @plugin "daisyui" {
 	themes: false;
 }
+@plugin "@tailwindcss/typography";
+@theme {
+	--color-dark-blue: #2c3e50;
+	--color-light-blue: #e6f0fa;
+}

@@ -8,6 +8,8 @@ package main
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+import "time"
+
 // border-b
 func Page() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
@@ -30,7 +32,7 @@ func Page() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><title>My Chicago Therapy</title><link rel=\"icon\" href=\"images/favicon.png\" type=\"image/png\"><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link type=\"text/css\" href=\"./src/tailwind.css\" rel=\"stylesheet\"><link type=\"text/css\" href=\"./src/main.css\" rel=\"stylesheet\"></head><body>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><title>My Chicago Therapy</title><link rel=\"icon\" href=\"images/favicon.png\" type=\"image/png\"><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link type=\"text/css\" href=\"./src/tailwind.css\" rel=\"stylesheet\"><link type=\"text/css\" href=\"./src/main.css\" rel=\"stylesheet\"><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap\" rel=\"stylesheet\"></head><body><div class=\"navbar bg-light-blue h-40\"><div class=\"w-20\"><img alt=\"my chicago therapy logo\" src=\"./images/favicon.png\"></div><div class=\"flex-1 h-30\"><img class=\"h-30\" alt=\"my chicago therapy\" src=\"./images/my_chicago_therapy.png\"></div><div class=\"flex-none\"><ul class=\"menu menu-horizontal text-dark-blue text-lg px-1\"><li><a>Home</a></li><li><a>Booking</a></li><li><a>About Me</a></li><li><a>Contact</a></li></ul></div><div class=\"mr-6 bg-dark-blue \ttext-light-blue\"><a class=\"btn\">Book a consultation</a></div></div><div class=\"card w-full h-full\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -38,7 +40,20 @@ func Page() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div><hr class=\"h-px my-1 bg-gray-200 border-0 dark:bg-gray-700 mx-3\"><footer class=\"footer sm:footer-horizontal footer-end p-4 justify-end\"><aside><p>Copyright © ")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var2 string
+		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(time.Now().Format("2006"))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `page.templ`, Line: 53, Col: 48}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, " - All right reserved</p></aside></footer></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
