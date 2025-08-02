@@ -30,7 +30,7 @@ func Page() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><title></title><link rel=\"icon\" href=\"images/favicon.webp\" type=\"image/webp\"><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link type=\"text/css\" href=\"./src/tailwind.css\" rel=\"stylesheet\"><link type=\"text/css\" href=\"./src/main.css\" rel=\"stylesheet\"></head><body>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><title>My Chicago Therapy</title><link rel=\"icon\" href=\"images/favicon.png\" type=\"image/png\"><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link type=\"text/css\" href=\"./src/tailwind.css\" rel=\"stylesheet\"><link type=\"text/css\" href=\"./src/main.css\" rel=\"stylesheet\"></head><body>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
