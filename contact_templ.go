@@ -29,6 +29,10 @@ func Contact() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<script src=\"https://www.google.com/recaptcha/api.js\"></script><script>\n\t\tfunction onSubmit(token) {\n\t\t\tdocument.getElementById(\"subject\").value = \"[Therapy Request] \" + document.getElementById(\"name\").value;\n\t\t\tdocument.getElementById(\"g-recaptcha-response\").remove();\n\t\t\tconst form = document.getElementById(\"booking-form\");\n\t\t\tform.submit();\n\t\t}\n\t</script>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
 		templ_7745c5c3_Var2 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
@@ -41,7 +45,7 @@ func Contact() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"card w-full mt-4 h-80\"><div class=\"card-body items-center text-center p-0\"></div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"card w-full h-full\"><div class=\"card-body items-center\"><form id=\"booking-form\" action=\"https://formsubmit.co/jeremy@mychicagotherapy.com\" method=\"POST\" enctype=\"multipart/form-data\"><input type=\"hidden\" name=\"_next\" value=\"https://www.mychicagotherapy.com/thank_you.html\"> <input type=\"hidden\" id=\"subject\" name=\"_subject\" value=\"[Booking Request] Unknown Name\"> <input type=\"text\" name=\"_honey\" style=\"display:none\"> <input type=\"hidden\" name=\"_captcha\" value=\"false\"> <input type=\"hidden\" name=\"_template\" value=\"table\"><fieldset class=\"fieldset\"><legend class=\"fieldset-legend\">Name</legend> <input autocomplete=\"name\" id=\"name\" name=\"name\" type=\"text\" class=\"input validator border sm:w-xl lg:w-2xl\" required></fieldset><fieldset class=\"fieldset\"><legend class=\"fieldset-legend\">Email</legend> <input autocomplete=\"on\" name=\"email\" type=\"email\" class=\"input validator border sm:w-xl lg:w-2xl\" required></fieldset><fieldset class=\"fieldset\"><legend class=\"fieldset-legend\">Phone Number</legend> <input autocomplete=\"tel\" name=\"number\" type=\"tel\" class=\"input validator border sm:w-xl lg:w-2xl\" required></fieldset><fieldset class=\"fieldset\"><legend class=\"fieldset-legend\">Description</legend> <textarea autocomplete=\"off\" name=\"description\" class=\"textarea h-24 validator border sm:w-xl lg:w-2xl\" required></textarea></fieldset><fieldset class=\"fieldset\"><legend class=\"fieldset-legend\">Insurance</legend> <textarea autocomplete=\"off\" name=\"description\" class=\"textarea h-24 validator border sm:w-xl lg:w-2xl\" placeholder=\"Will you be using insurance? If so, what kind?\"></textarea></fieldset><fieldset class=\"fieldset\"><button class=\"g-recaptcha active:bg-black active:text-white hover:bg-black hover:text-white justify-center w-2xs input border\" data-sitekey=\"6Lehp5grAAAAANSU7PMJJbkIepOqTx3Vh806OoXo\" data-callback=\"onSubmit\" data-action=\"submit\">Submit</button></fieldset></form></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

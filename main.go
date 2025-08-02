@@ -9,8 +9,11 @@ import (
 )
 
 var components = map[string]func() templ.Component{
-	"index.html": Index,
 	"404.html":   NotFound,
+	"index.html": Index,
+	"about_me.html": AboutMe,
+	"contact.html": Contact,
+	"thank_you.html": ThankYou,
 }
 
 // main - generate components and output to *.html files
