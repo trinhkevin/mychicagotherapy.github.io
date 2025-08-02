@@ -2,9 +2,16 @@ package main
 
 templ AboutMe() {
 	@Page() {
-		<div class="card w-full">
+		<div class="card lg:card-side shadow-sm h-60">
+			<div class="card-body items-center text-center justify-center bg-light-brown">
+				<article class="prose lg:prose-m py-4 w-full text-light-blue lora">
+					<h1 class="text-4xl">About Me</h1>
+				</article>
+			</div>
+		</div>
+		<div class="card w-full bg-dark-blue shadow-sm text-white py-8">
 			<div class="card-body items-center p-0">
-				<section class="prose lg:prose-xl mx-auto px-4 py-8">
+				<section class="prose lg:prose-xl mx-auto px-0 py-8">
 					<h2>My Approach</h2>
 					<p>
 						I take a person-centered approach to create a safe space where you and I can examine the things that are preventing you from living the life you deserve. My approach draws from a variety of theories and therapies to best fit your needs, such as cognitive behavioral therapy and dialectical behavior therapy. We'll focus on the thoughts and emotions that arise when you face troubling situations.
