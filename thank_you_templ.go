@@ -41,7 +41,7 @@ func ThankYou() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<main class=\"grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8\"><div class=\"text-center\"><figure class=\"my-5\"></figure><h1 class=\"text-4xl\">Thank you for your information.</h1><p class=\"mt-2 text-lg\">I will reach out in 3-5 business days</p></div></main>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<main class=\"grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8\"><div class=\"text-center\"><figure class=\"my-5\"></figure><h1 class=\"text-4xl\">Thank you for submitting your information.</h1><p class=\"mt-2 text-lg\">I will rsepond out in 48-72 business hours.</p></div></main>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
