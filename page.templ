@@ -21,7 +21,7 @@ templ Page() {
 			<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-H73B8RSP8B'); </script>
 		</head>
 		<body>
-			<div class="navbar lg:h-40 bg-light-blue text-dark-blue shadow-sm">
+			<div class="navbar lg:h-40 bg-light-blue text-dark-blue">
 				<div class="navbar-start">
 					<div class="dropdown">
 						<div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -29,7 +29,7 @@ templ Page() {
 						</div>
 						<ul
 							tabindex="0"
-							class="menu menu-lg dropdown-content bg-light-blue rounded-box z-1 mt-3 w-52 p-2 shadow"
+							class="menu menu-lg dropdown-content bg-light-blue rounded-box z-1 mt-3 w-52 p-2"
 						>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="about_me.html">About Me</a></li>
@@ -62,7 +62,8 @@ templ Page() {
 			<div class="card w-full h-full">
 				{ children... }
 			</div>
-			<footer class="footer sm:footer-horizontal footer-end p-4 justify-end">
+			<hr class="h-px bg-dark-blue border-0"/>
+			<footer class="footer sm:footer-horizontal footer-end p-4 justify-center bg-light-blue">
 				<aside>
 					<p>Copyright © { time.Now().Format("2006") } - All right reserved</p>
 				</aside>
