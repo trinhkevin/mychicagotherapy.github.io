@@ -2,11 +2,24 @@ package main
 
 templ AboutMe() {
 	@Page() {
-		<div class="card lg:card-side h-60">
-			<div class="card-body items-center text-center justify-center bg-light-blue">
-				<article class="prose lg:prose-m py-4 w-full text-black lora">
+		<div class="card lg:card-side h-60 bg-dark-blue text-white">
+			<div class="card-body items-center text-center justify-center">
+				<article class="prose lg:prose-m py-4 w-full lora">
 					<h1 class="text-4xl">About Me</h1>
 				</article>
+			</div>
+		</div>
+		<div class="card w-full bg-light-blue text-black">
+			<div class="card-body items-center p-0">
+				<figure
+					class="w-75"
+				>
+					<img
+						loading="lazy"
+						alt="Jeremy Dales"
+						src="images/jeremy2.jpg"
+					/>
+				</figure>
 			</div>
 		</div>
 		<div class="card w-full bg-dark-blue text-white py-8">
