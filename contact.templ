@@ -7,8 +7,12 @@ templ Contact() {
 			document.getElementById("subject").value = "[Therapy Request] " + document.getElementById("name").value;
 			document.getElementById("g-recaptcha-response").remove();
 			const form = document.getElementById("booking-form");
-			form.checkValidity();
-			form.submit();
+			if (form.checkValidity()) {
+            	form.submit();
+        	} else {
+				grecaptcha.reset();
+				form.reportValidity();
+			}
 		}
 	</script>
 	@Page() {
