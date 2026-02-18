@@ -77,6 +77,7 @@ body {
 	}
 }
 
+
 /* Form: warm, minimal */
 .form-card {
 	border-radius: 2px;
@@ -125,6 +126,19 @@ body {
 .form-textarea:focus {
 	outline: none;
 	border-bottom-color: #3d3935;
+}
+
+/* WCAG 2.4.7: Visible focus for keyboard users */
+.form-input:focus-visible,
+.form-textarea:focus-visible {
+	outline: 2px solid #3d3935;
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+
+.form-submit:focus-visible {
+	outline: 2px solid #f2ebe3;
+	outline-offset: 2px;
 }
 
 .form-textarea {
