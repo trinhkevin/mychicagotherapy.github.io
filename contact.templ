@@ -16,13 +16,14 @@ templ Contact() {
 		}
 	</script>
 	@Page("Contact | My Chicago Therapy | Book a Consultation", "Book a consultation with My Chicago Therapy. Get in touch to start your journey toward healing and growth. We respond within 48–72 business hours.") {
-		<section class="w-full min-h-[60vh] bg-sand/30 py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
+		<section class="w-full min-h-[60vh] py-16 sm:py-20 lg:py-24 px-6 sm:px-8 lg:px-12 bg-sand/30">
 			<div class="max-w-xl mx-auto">
-				<header class="text-center mb-10 sm:mb-12">
-					<h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-forest lora mb-3">Book a Consultation</h1>
-					<p class="text-base sm:text-lg text-forest/80 leading-relaxed max-w-md mx-auto">Taking the first step can feel daunting. Share a little about yourself below, and I'll reach out within 48–72 hours. Your story matters.</p>
+				<header class="text-center mb-14 sm:mb-16">
+					<p class="text-[11px] tracking-[0.25em] uppercase text-forest/60 mb-4">Get in touch</p>
+					<h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium text-forest mb-5 tracking-tight">Book a Consultation</h1>
+					<p class="text-base sm:text-lg text-forest/70 leading-relaxed max-w-md mx-auto">Taking the first step can feel daunting. Share a little about yourself below, and I'll reach out within 48–72 hours. Your story matters.</p>
 				</header>
-				<div class="form-card bg-white/95 backdrop-blur-sm border border-forest/10 shadow-xl px-6 sm:px-8 lg:px-10 py-8 sm:py-10">
+				<div class="form-card bg-sand/60 px-8 sm:px-10 lg:px-12 py-10 sm:py-12">
 					<form id="booking-form" action="https://formsubmit.co/jeremy@mychicagotherapy.com" method="POST" enctype="multipart/form-data" class="space-y-6 sm:space-y-7">
 						<input type="hidden" name="_next" value="https://www.mychicagotherapy.com/thank_you.html"/>
 						<input type="hidden" id="subject" name="_subject" value="[Booking Request] Unknown Name"/>
@@ -46,10 +47,10 @@ templ Contact() {
 							<textarea autocomplete="off" id="description" name="description" class="form-textarea" rows="4" placeholder="No need to share everything—just what feels comfortable. A few sentences helps me prepare for our conversation." required></textarea>
 						</div>
 						<div class="form-field">
-							<label for="insurance" class="form-label">Insurance <span class="text-forest/60 font-normal">(optional)</span></label>
+							<label for="insurance" class="form-label">Insurance <span class="text-forest/50 font-normal normal-case tracking-normal">(optional)</span></label>
 							<textarea autocomplete="off" id="insurance" name="insurance" class="form-textarea form-textarea-sm" rows="2" placeholder="Using insurance? Tell me your plan—or skip if you prefer private pay."></textarea>
 						</div>
-						<div class="pt-2">
+						<div class="pt-4">
 							<button
 								type="submit"
 								class="form-submit g-recaptcha"
@@ -60,7 +61,7 @@ templ Contact() {
 						</div>
 					</form>
 				</div>
-				<p class="text-center text-sm text-forest/60 mt-6">All information is kept strictly confidential.</p>
+				<p class="text-center text-[12px] text-forest/45 mt-8 tracking-wide">All information is kept strictly confidential.</p>
 			</div>
 		</section>
 	}

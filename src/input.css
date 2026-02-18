@@ -4,19 +4,20 @@
 }
 @plugin "@tailwindcss/typography";
 @theme {
-	/* Green earth tone palette: calm, natural, grounding */
-	--color-forest: #2d3b2d;
-	--color-sage: #4a5d4a;
-	--color-sage-light: #6b7c6b;
-	--color-cream: #f7f6f2;
-	--color-sand: #e8e4dc;
-	--color-earth: #5c4a3a;
-	/* Legacy names map to new palette for compatibility */
-	--color-dark-blue: #2d3b2d;
-	--color-light-blue: #f7f6f2;
-	--color-light-brown: #6b7c6b;
-	--color-muted: #5a6b5a;
-	--color-surface: #ebe8e0;
-	--font-sans: 'Lato', ui-sans-serif, system-ui, sans-serif;
-	--font-serif: 'Lora', ui-serif, Georgia, serif;
+	/* Warm, earthy, inviting – less sterile */
+	--color-forest: #3d3935;
+	--color-sage: #8a9a7f;
+	--color-sage-light: #a8b59e;
+	--color-cream: #f2ebe3;
+	--color-sand: #e5dbd0;
+	--color-earth: #6b5d52;
+	--color-warm: #b8735c;
+	/* Legacy / compatibility */
+	--color-dark-blue: #3d3935;
+	--color-light-blue: #f2ebe3;
+	--color-light-brown: #a8b59e;
+	--color-muted: #7a7269;
+	--color-surface: #e5dbd0;
+	--font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+	--font-serif: 'Cormorant Garamond', 'Lora', ui-serif, Georgia, serif;
 }
