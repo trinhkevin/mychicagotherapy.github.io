@@ -3,7 +3,9 @@ package main
 import "time"
 
 // Page renders the shell: semantic HTML, mobile-first navbar, SEO meta, and footer.
-templ Page(title string, description string) {
+// canonicalPath: "" for homepage, or "about_me.html", "contact.html" etc.
+// noindex: true for thank_you, 404, and other non-indexable pages.
+templ Page(title string, description string, canonicalPath string, noindex bool) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -12,14 +14,25 @@ templ Page(title string, description string) {
 			<meta name="theme-color" content="#f2ebe3"/>
 			<title>{ title }</title>
 			<meta name="description" content={ description }/>
-			<link rel="canonical" href="https://www.mychicagotherapy.com/"/>
+			if noindex {
+				<meta name="robots" content="noindex, follow"/>
+			}
+			<link rel="canonical" href={ "https://www.mychicagotherapy.com/" + canonicalPath }/>
 			<!-- Open Graph -->
 			<meta property="og:type" content="website"/>
 			<meta property="og:title" content={ title }/>
 			<meta property="og:description" content={ description }/>
-			<meta property="og:url" content="https://www.mychicagotherapy.com/"/>
+			<meta property="og:url" content={ "https://www.mychicagotherapy.com/" + canonicalPath }/>
+			<meta property="og:image" content="https://www.mychicagotherapy.com/images/jeremy.png"/>
+			<meta property="og:image:alt" content="Jeremy Dales, Clinical Social Worker at My Chicago Therapy"/>
 			<meta property="og:locale" content="en_US"/>
 			<meta property="og:site_name" content="My Chicago Therapy"/>
+			<!-- Twitter Card -->
+			<meta name="twitter:card" content="summary_large_image"/>
+			<meta name="twitter:title" content={ title }/>
+			<meta name="twitter:description" content={ description }/>
+			<meta name="twitter:image" content="https://www.mychicagotherapy.com/images/jeremy.png"/>
+			<meta name="twitter:image:alt" content="Jeremy Dales, Clinical Social Worker at My Chicago Therapy"/>
 			<link rel="icon" href="images/favicon.png" type="image/png" sizes="32x32"/>
 			<link rel="preconnect" href="https://fonts.googleapis.com"/>
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -42,6 +55,8 @@ templ Page(title string, description string) {
 					"name": "My Chicago Therapy",
 					"description": "Professional therapy in Chicago. Individual therapy for adults with a person-centered approach.",
 					"url": "https://www.mychicagotherapy.com",
+					"image": "https://www.mychicagotherapy.com/images/jeremy.png",
+					"address": { "@type": "PostalAddress", "addressLocality": "Chicago", "addressRegion": "IL" },
 					"areaServed": { "@type": "Place", "name": "Chicago, IL" }
 				}
 			</script>

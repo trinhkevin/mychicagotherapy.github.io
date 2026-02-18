@@ -47,7 +47,7 @@ func AboutMe() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = Page("About Me | My Chicago Therapy", "Learn about Jeremy Dales, LCSW — Clinical Social Worker with over 10 years of experience. Person-centered therapy for adults in Chicago. CBT, DBT, and more.").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Page("About Me | My Chicago Therapy", "Learn about Jeremy Dales, LCSW — Clinical Social Worker with over 10 years of experience. Person-centered therapy for adults in Chicago. CBT, DBT, and more.", "about_me.html", false).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -1,0 +1,6 @@
+# robots.txt for mychicagotherapy.com
+User-agent: *
+Allow: /
+
+# Sitemap location (helps search engines discover all pages)
+Sitemap: https://www.mychicagotherapy.com/sitemap.xml

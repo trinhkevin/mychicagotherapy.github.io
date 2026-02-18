@@ -51,7 +51,7 @@ func Contact() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = Page("Contact | My Chicago Therapy | Book a Consultation", "Book a consultation with My Chicago Therapy. Get in touch to start your journey toward healing and growth. We respond within 48–72 business hours.").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Page("Contact | My Chicago Therapy | Book a Consultation", "Book a consultation with My Chicago Therapy. Get in touch to start your journey toward healing and growth. We respond within 48–72 business hours.", "contact.html", false).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

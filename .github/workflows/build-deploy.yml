@@ -31,6 +31,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.24"
+      - name: Install templ
+        run: go install github.com/a-h/templ/cmd/templ@latest
+      - name: Generate templ
+        run: templ generate
+      - name: Build HTML
+        run: go run .
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

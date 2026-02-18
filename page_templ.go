@@ -11,7 +11,9 @@ import templruntime "github.com/a-h/templ/runtime"
 import "time"
 
 // Page renders the shell: semantic HTML, mobile-first navbar, SEO meta, and footer.
-func Page(title string, description string) templ.Component {
+// canonicalPath: "" for homepage, or "about_me.html", "contact.html" etc.
+// noindex: true for thank_you, 404, and other non-indexable pages.
+func Page(title string, description string, canonicalPath string, noindex bool) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -39,7 +41,7 @@ func Page(title string, description string) templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `page.templ`, Line: 13, Col: 17}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `page.templ`, Line: 15, Col: 17}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -52,39 +54,101 @@ func Page(title string, description string) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(description)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `page.templ`, Line: 14, Col: 49}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `page.templ`, Line: 16, Col: 49}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\"><link rel=\"canonical\" href=\"https://www.mychicagotherapy.com/\"><!-- Open Graph --><meta property=\"og:type\" content=\"website\"><meta property=\"og:title\" content=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var4 string
-		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(title)
+		if noindex {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<meta name=\"robots\" content=\"noindex, follow\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<link rel=\"canonical\" href=\"")
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `page.templ`, Line: 18, Col: 44}
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var4 templ.SafeURL
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinURLErrs("https://www.mychicagotherapy.com/" + canonicalPath)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `page.templ`, Line: 20, Col: 83}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\"><meta property=\"og:description\" content=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\"><!-- Open Graph --><meta property=\"og:type\" content=\"website\"><meta property=\"og:title\" content=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var5 string
-		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(description)
+		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `page.templ`, Line: 19, Col: 56}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `page.templ`, Line: 23, Col: 44}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "\"><meta property=\"og:url\" content=\"https://www.mychicagotherapy.com/\"><meta property=\"og:locale\" content=\"en_US\"><meta property=\"og:site_name\" content=\"My Chicago Therapy\"><link rel=\"icon\" href=\"images/favicon.png\" type=\"image/png\" sizes=\"32x32\"><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link rel=\"preconnect\" href=\"https://www.googletagmanager.com\"><link rel=\"stylesheet\" href=\"./src/tailwind.css\"><link rel=\"stylesheet\" href=\"./src/main.css\"><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap\"><!-- Google tag (gtag.js) --><script async src=\"https://www.googletagmanager.com/gtag/js?id=AW-17617137190\"></script><script>\n\t\t\t\twindow.dataLayer = window.dataLayer || [];\n\t\t\t\tfunction gtag(){dataLayer.push(arguments);}\n\t\t\t\tgtag('js', new Date());\n\t\t\t\tgtag('config', 'AW-17617137190');\n\t\t\t</script><script type=\"application/ld+json\">\n\t\t\t\t{\n\t\t\t\t\t\"@context\": \"https://schema.org\",\n\t\t\t\t\t\"@type\": \"ProfessionalService\",\n\t\t\t\t\t\"name\": \"My Chicago Therapy\",\n\t\t\t\t\t\"description\": \"Professional therapy in Chicago. Individual therapy for adults with a person-centered approach.\",\n\t\t\t\t\t\"url\": \"https://www.mychicagotherapy.com\",\n\t\t\t\t\t\"areaServed\": { \"@type\": \"Place\", \"name\": \"Chicago, IL\" }\n\t\t\t\t}\n\t\t\t</script></head><body class=\"bg-cream antialiased text-forest\"><a href=\"#main-content\" class=\"sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-forest focus:text-cream focus:rounded\">Skip to main content</a><header class=\"nav-header sticky top-0 z-40 w-full border-b border-forest/[0.06] bg-cream/95 backdrop-blur-md\"><nav class=\"flex items-center justify-between min-h-16 sm:min-h-[4.5rem] px-5 sm:px-8 lg:px-12 max-w-6xl mx-auto\" aria-label=\"Main navigation\"><a class=\"flex items-center gap-3 text-forest hover:opacity-80 transition-opacity\" href=\"index.html\"><img loading=\"eager\" decoding=\"async\" alt=\"\" src=\"images/favicon.png\" class=\"h-8 w-8 rounded-sm\" width=\"32\" height=\"32\"> <span class=\"font-serif text-lg sm:text-xl font-medium tracking-tight hidden sm:inline\">My Chicago Therapy</span></a><div class=\"flex items-center gap-1 sm:gap-2\"><details class=\"relative sm:hidden [&::-webkit-details-marker]:hidden\"><summary class=\"flex items-center justify-center min-h-12 min-w-12 cursor-pointer list-none text-forest/80 hover:text-forest transition-colors\" aria-label=\"Open menu\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-5 w-5\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M4 6h16M4 12h16M4 18h16\"></path></svg></summary><ul class=\"absolute right-0 top-full mt-1 w-48 py-3 bg-cream/98 backdrop-blur-xl border border-forest/[0.06] rounded-lg shadow-lg text-sm\"><li><a href=\"index.html\" class=\"block px-5 py-2.5 text-forest/80 hover:text-forest hover:bg-forest/[0.04] transition-colors\">Home</a></li><li><a href=\"about_me.html\" class=\"block px-5 py-2.5 text-forest/80 hover:text-forest hover:bg-forest/[0.04] transition-colors\">About Me</a></li><li><a href=\"contact.html\" class=\"block px-5 py-2.5 text-forest/80 hover:text-forest hover:bg-forest/[0.04] transition-colors\">Contact</a></li><li class=\"mt-2 pt-2 border-t border-forest/[0.06]\"><a href=\"contact.html\" class=\"block px-5 py-2.5 text-forest font-medium\">Book a consultation</a></li></ul></details><div class=\"hidden sm:flex items-center gap-6 text-[15px] font-normal tracking-wide text-forest/75\"><a href=\"index.html\" class=\"hover:text-forest transition-colors\">Home</a> <a href=\"about_me.html\" class=\"hover:text-forest transition-colors\">About Me</a> <a href=\"contact.html\" class=\"hover:text-forest transition-colors\">Contact</a></div><a class=\"hidden sm:inline-block ml-2 px-5 py-2.5 text-[13px] font-medium tracking-widest uppercase text-forest/70 hover:text-forest border border-forest/20 hover:border-forest/40 rounded-full transition-all duration-200\" href=\"contact.html\">Book</a></div></nav></header><main id=\"main-content\" class=\"min-h-[60vh]\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "\"><meta property=\"og:description\" content=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var6 string
+		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(description)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `page.templ`, Line: 24, Col: 56}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "\"><meta property=\"og:url\" content=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var7 string
+		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs("https://www.mychicagotherapy.com/" + canonicalPath)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `page.templ`, Line: 25, Col: 88}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "\"><meta property=\"og:image\" content=\"https://www.mychicagotherapy.com/images/jeremy.png\"><meta property=\"og:image:alt\" content=\"Jeremy Dales, Clinical Social Worker at My Chicago Therapy\"><meta property=\"og:locale\" content=\"en_US\"><meta property=\"og:site_name\" content=\"My Chicago Therapy\"><!-- Twitter Card --><meta name=\"twitter:card\" content=\"summary_large_image\"><meta name=\"twitter:title\" content=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var8 string
+		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(title)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `page.templ`, Line: 32, Col: 45}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "\"><meta name=\"twitter:description\" content=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var9 string
+		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(description)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `page.templ`, Line: 33, Col: 57}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "\"><meta name=\"twitter:image\" content=\"https://www.mychicagotherapy.com/images/jeremy.png\"><meta name=\"twitter:image:alt\" content=\"Jeremy Dales, Clinical Social Worker at My Chicago Therapy\"><link rel=\"icon\" href=\"images/favicon.png\" type=\"image/png\" sizes=\"32x32\"><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link rel=\"preconnect\" href=\"https://www.googletagmanager.com\"><link rel=\"stylesheet\" href=\"./src/tailwind.css\"><link rel=\"stylesheet\" href=\"./src/main.css\"><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap\"><!-- Google tag (gtag.js) --><script async src=\"https://www.googletagmanager.com/gtag/js?id=AW-17617137190\"></script><script>\n\t\t\t\twindow.dataLayer = window.dataLayer || [];\n\t\t\t\tfunction gtag(){dataLayer.push(arguments);}\n\t\t\t\tgtag('js', new Date());\n\t\t\t\tgtag('config', 'AW-17617137190');\n\t\t\t</script><script type=\"application/ld+json\">\n\t\t\t\t{\n\t\t\t\t\t\"@context\": \"https://schema.org\",\n\t\t\t\t\t\"@type\": \"ProfessionalService\",\n\t\t\t\t\t\"name\": \"My Chicago Therapy\",\n\t\t\t\t\t\"description\": \"Professional therapy in Chicago. Individual therapy for adults with a person-centered approach.\",\n\t\t\t\t\t\"url\": \"https://www.mychicagotherapy.com\",\n\t\t\t\t\t\"image\": \"https://www.mychicagotherapy.com/images/jeremy.png\",\n\t\t\t\t\t\"address\": { \"@type\": \"PostalAddress\", \"addressLocality\": \"Chicago\", \"addressRegion\": \"IL\" },\n\t\t\t\t\t\"areaServed\": { \"@type\": \"Place\", \"name\": \"Chicago, IL\" }\n\t\t\t\t}\n\t\t\t</script></head><body class=\"bg-cream antialiased text-forest\"><a href=\"#main-content\" class=\"sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-forest focus:text-cream focus:rounded\">Skip to main content</a><header class=\"nav-header sticky top-0 z-40 w-full border-b border-forest/[0.06] bg-cream/95 backdrop-blur-md\"><nav class=\"flex items-center justify-between min-h-16 sm:min-h-[4.5rem] px-5 sm:px-8 lg:px-12 max-w-6xl mx-auto\" aria-label=\"Main navigation\"><a class=\"flex items-center gap-3 text-forest hover:opacity-80 transition-opacity\" href=\"index.html\"><img loading=\"eager\" decoding=\"async\" alt=\"\" src=\"images/favicon.png\" class=\"h-8 w-8 rounded-sm\" width=\"32\" height=\"32\"> <span class=\"font-serif text-lg sm:text-xl font-medium tracking-tight hidden sm:inline\">My Chicago Therapy</span></a><div class=\"flex items-center gap-1 sm:gap-2\"><details class=\"relative sm:hidden [&::-webkit-details-marker]:hidden\"><summary class=\"flex items-center justify-center min-h-12 min-w-12 cursor-pointer list-none text-forest/80 hover:text-forest transition-colors\" aria-label=\"Open menu\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-5 w-5\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M4 6h16M4 12h16M4 18h16\"></path></svg></summary><ul class=\"absolute right-0 top-full mt-1 w-48 py-3 bg-cream/98 backdrop-blur-xl border border-forest/[0.06] rounded-lg shadow-lg text-sm\"><li><a href=\"index.html\" class=\"block px-5 py-2.5 text-forest/80 hover:text-forest hover:bg-forest/[0.04] transition-colors\">Home</a></li><li><a href=\"about_me.html\" class=\"block px-5 py-2.5 text-forest/80 hover:text-forest hover:bg-forest/[0.04] transition-colors\">About Me</a></li><li><a href=\"contact.html\" class=\"block px-5 py-2.5 text-forest/80 hover:text-forest hover:bg-forest/[0.04] transition-colors\">Contact</a></li><li class=\"mt-2 pt-2 border-t border-forest/[0.06]\"><a href=\"contact.html\" class=\"block px-5 py-2.5 text-forest font-medium\">Book a consultation</a></li></ul></details><div class=\"hidden sm:flex items-center gap-6 text-[15px] font-normal tracking-wide text-forest/75\"><a href=\"index.html\" class=\"hover:text-forest transition-colors\">Home</a> <a href=\"about_me.html\" class=\"hover:text-forest transition-colors\">About Me</a> <a href=\"contact.html\" class=\"hover:text-forest transition-colors\">Contact</a></div><a class=\"hidden sm:inline-block ml-2 px-5 py-2.5 text-[13px] font-medium tracking-widest uppercase text-forest/70 hover:text-forest border border-forest/20 hover:border-forest/40 rounded-full transition-all duration-200\" href=\"contact.html\">Book</a></div></nav></header><main id=\"main-content\" class=\"min-h-[60vh]\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -92,20 +156,20 @@ func Page(title string, description string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</main><footer class=\"mt-auto border-t border-forest/[0.06] bg-cream py-12 sm:py-16\"><div class=\"max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 text-center\"><p class=\"text-[13px] sm:text-sm text-forest/50 tracking-wide\">© ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</main><footer class=\"mt-auto border-t border-forest/[0.06] bg-cream py-12 sm:py-16\"><div class=\"max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 text-center\"><p class=\"text-[13px] sm:text-sm text-forest/50 tracking-wide\">© ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var6 string
-		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(time.Now().Format("2006"))
+		var templ_7745c5c3_Var10 string
+		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(time.Now().Format("2006"))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `page.templ`, Line: 83, Col: 98}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `page.templ`, Line: 98, Col: 98}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, " My Chicago Therapy</p></div></footer></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, " My Chicago Therapy</p></div></footer></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
