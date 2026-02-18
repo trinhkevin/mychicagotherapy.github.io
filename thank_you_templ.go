@@ -41,13 +41,13 @@ func ThankYou() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<main class=\"grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8 bg-light-blue\"><div class=\"text-center\"><figure class=\"my-5\"></figure><h1 class=\"text-4xl\">Thank you for submitting your information.</h1><p class=\"mt-2 text-lg\">I will rsepond out in 48-72 business hours.</p></div></main>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"grid min-h-[60vh] place-items-center px-4 sm:px-6 py-16 sm:py-24 lg:py-32 max-w-2xl mx-auto text-center\"><div><h1 class=\"text-2xl sm:text-3xl lg:text-4xl font-semibold text-forest lora\">Thank you for submitting your information.</h1><p class=\"mt-4 text-base sm:text-lg text-forest/90\">I will respond within 48–72 business hours.</p></div></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = Page().Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Page("Thank You | My Chicago Therapy", "Thank you for reaching out. We will respond within 48–72 business hours.").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

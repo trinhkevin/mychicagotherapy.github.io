@@ -4,7 +4,19 @@
 }
 @plugin "@tailwindcss/typography";
 @theme {
-	--color-dark-blue: #2c3e50;
-	--color-light-blue: #e6f0fa;
-	--color-light-brown: #c9a27e;
+	/* Green earth tone palette: calm, natural, grounding */
+	--color-forest: #2d3b2d;
+	--color-sage: #4a5d4a;
+	--color-sage-light: #6b7c6b;
+	--color-cream: #f7f6f2;
+	--color-sand: #e8e4dc;
+	--color-earth: #5c4a3a;
+	/* Legacy names map to new palette for compatibility */
+	--color-dark-blue: #2d3b2d;
+	--color-light-blue: #f7f6f2;
+	--color-light-brown: #6b7c6b;
+	--color-muted: #5a6b5a;
+	--color-surface: #ebe8e0;
+	--font-sans: 'Lato', ui-sans-serif, system-ui, sans-serif;
+	--font-serif: 'Lora', ui-serif, Georgia, serif;
 }

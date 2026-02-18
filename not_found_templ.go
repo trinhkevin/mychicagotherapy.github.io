@@ -41,13 +41,13 @@ func NotFound() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<main class=\"grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8\"><div class=\"text-center\"><h1 class=\"text-4xl\">Page not found</h1></div></main>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"grid min-h-[60vh] place-items-center px-4 sm:px-6 py-16 sm:py-24 lg:py-32 bg-cream\"><div class=\"text-center max-w-md\"><h1 class=\"text-2xl sm:text-3xl font-semibold text-forest lora\">Page not found</h1><p class=\"mt-3 text-forest/80\">Return <a href=\"index.html\" class=\"underline font-medium hover:text-forest\">home</a>.</p></div></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = Page().Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Page("Page Not Found | My Chicago Therapy", "The page you are looking for could not be found.").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
