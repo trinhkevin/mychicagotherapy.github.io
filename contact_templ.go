@@ -8,6 +8,8 @@ package main
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+// Contact is kept as a redirect so existing links and search results still land
+// on the Contact section of the single-page site.
 func Contact() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
@@ -29,29 +31,7 @@ func Contact() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<script src=\"https://www.google.com/recaptcha/api.js\" async defer></script><script>\n\t\tfunction onSubmit(token) {\n\t\t\tdocument.getElementById(\"subject\").value = \"[Therapy Request] \" + document.getElementById(\"name\").value;\n\t\t\tdocument.getElementById(\"g-recaptcha-response\").remove();\n\t\t\tconst form = document.getElementById(\"booking-form\");\n\t\t\tif (form.checkValidity()) {\n            \tform.submit();\n        \t} else {\n\t\t\t\tgrecaptcha.reset();\n\t\t\t\tform.reportValidity();\n\t\t\t}\n\t\t}\n\t</script>")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Var2 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
-			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
-			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
-			if !templ_7745c5c3_IsBuffer {
-				defer func() {
-					templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
-					if templ_7745c5c3_Err == nil {
-						templ_7745c5c3_Err = templ_7745c5c3_BufErr
-					}
-				}()
-			}
-			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<section class=\"w-full min-h-[60vh] py-16 sm:py-20 lg:py-24 px-6 sm:px-8 lg:px-12 bg-sand/30\"><div class=\"max-w-xl mx-auto\"><header class=\"text-center mb-14 sm:mb-16\"><p class=\"text-[11px] tracking-[0.25em] uppercase text-forest/60 mb-4\">Get in touch</p><h1 class=\"text-3xl sm:text-4xl lg:text-5xl font-serif font-medium text-forest mb-5 tracking-tight\">Book a Consultation</h1><p class=\"text-base sm:text-lg text-forest/70 leading-relaxed max-w-md mx-auto\">Taking the first step can feel daunting. Share a little about yourself below, and I'll reach out within 48–72 hours. Your story matters.</p></header><div class=\"form-card bg-sand/60 px-8 sm:px-10 lg:px-12 py-10 sm:py-12\"><form id=\"booking-form\" action=\"https://formsubmit.co/jeremy@mychicagotherapy.com\" method=\"POST\" enctype=\"multipart/form-data\" class=\"space-y-6 sm:space-y-7\"><input type=\"hidden\" name=\"_next\" value=\"https://www.mychicagotherapy.com/thank_you.html\"> <input type=\"hidden\" id=\"subject\" name=\"_subject\" value=\"[Booking Request] Unknown Name\"> <input type=\"text\" name=\"_honey\" style=\"display:none\" tabindex=\"-1\" autocomplete=\"off\"> <input type=\"hidden\" name=\"_captcha\" value=\"false\"> <input type=\"hidden\" name=\"_template\" value=\"table\"><div class=\"form-field\"><label for=\"name\" class=\"form-label\">Your name</label> <input autocomplete=\"name\" id=\"name\" name=\"name\" type=\"text\" class=\"form-input\" placeholder=\"How would you like to be addressed?\" required></div><div class=\"form-field\"><label for=\"email\" class=\"form-label\">Email address</label> <input autocomplete=\"email\" id=\"email\" name=\"email\" type=\"email\" class=\"form-input\" placeholder=\"Where can I reach you?\" required></div><div class=\"form-field\"><label for=\"phone\" class=\"form-label\">Phone number</label> <input autocomplete=\"tel\" id=\"phone\" name=\"number\" type=\"tel\" class=\"form-input\" placeholder=\"Best number to call\" required></div><div class=\"form-field\"><label for=\"description\" class=\"form-label\">What brings you here?</label> <textarea autocomplete=\"off\" id=\"description\" name=\"description\" class=\"form-textarea\" rows=\"4\" placeholder=\"No need to share everything—just what feels comfortable. A few sentences helps me prepare for our conversation.\" required></textarea></div><div class=\"form-field\"><label for=\"insurance\" class=\"form-label\">Insurance <span class=\"text-forest/50 font-normal normal-case tracking-normal\">(optional)</span></label> <textarea autocomplete=\"off\" id=\"insurance\" name=\"insurance\" class=\"form-textarea form-textarea-sm\" rows=\"2\" placeholder=\"Using insurance? Tell me your plan—or skip if you prefer private pay.\"></textarea></div><div class=\"pt-4\"><button type=\"submit\" class=\"form-submit g-recaptcha\" data-sitekey=\"6Lehp5grAAAAANSU7PMJJbkIepOqTx3Vh806OoXo\" data-callback=\"onSubmit\" data-action=\"submit\">Send your message</button></div></form></div><p class=\"text-center text-[12px] text-forest/45 mt-8 tracking-wide\">All information is kept strictly confidential.</p></div></section>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			return nil
-		})
-		templ_7745c5c3_Err = Page("Contact | My Chicago Therapy | Book a Consultation", "Book a consultation with My Chicago Therapy. Get in touch to start your journey toward healing and growth. We respond within 48–72 business hours.", "contact.html", false).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Redirect("Contact | My Chicago Therapy", "index.html#contact").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

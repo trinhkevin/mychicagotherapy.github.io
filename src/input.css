@@ -3,21 +3,22 @@
 	themes: false;
 }
 @plugin "@tailwindcss/typography";
+@import './main.css';
 @theme {
-	/* Warm, earthy, inviting – less sterile */
-	--color-forest: #3d3935;
-	--color-sage: #8a9a7f;
-	--color-sage-light: #a8b59e;
-	--color-cream: #f2ebe3;
-	--color-sand: #e5dbd0;
-	--color-earth: #6b5d52;
-	--color-warm: #b8735c;
-	/* Legacy / compatibility */
-	--color-dark-blue: #3d3935;
-	--color-light-blue: #f2ebe3;
-	--color-light-brown: #a8b59e;
-	--color-muted: #7a7269;
-	--color-surface: #e5dbd0;
-	--font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
-	--font-serif: 'Cormorant Garamond', 'Lora', ui-serif, Georgia, serif;
+	/* Blue + green palette drawn from the logo and the site's original colors */
+	--color-navy: #2c3e50;
+	--color-ink: #1f2d3a;
+	--color-teal: #3a6561;
+	--color-mint: #8ec4bb;
+	--color-mist: #e4eef2;
+	--color-pine: #2f4f4a;
+	--color-peach: #f7d6b4;
+	--color-paper: #ffffff;
+	/* Legacy names kept for compatibility */
+	--color-forest: #2c3e50;
+	--color-cream: #ffffff;
+	--color-sand: #e4eef2;
+	--font-sans: 'Newsreader', ui-serif, Georgia, serif;
+	--font-serif: 'Newsreader', ui-serif, Georgia, serif;
+	--font-wordmark: 'Oswald', 'Arial Narrow', ui-sans-serif, sans-serif;
 }

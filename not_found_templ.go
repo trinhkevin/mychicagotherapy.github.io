@@ -41,7 +41,7 @@ func NotFound() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"min-h-[60vh] flex items-center justify-center px-6 sm:px-8 py-24 sm:py-32\"><div class=\"max-w-md mx-auto text-center\"><h1 class=\"text-2xl sm:text-3xl font-serif font-medium text-forest mb-4 tracking-tight\">Page not found</h1><p class=\"text-forest/65\">Return <a href=\"index.html\" class=\"text-forest underline underline-offset-2 hover:no-underline transition-all\">home</a>.</p></div></section>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"band section--tight text-center\" aria-labelledby=\"nf-title\"><div class=\"wrap\"><h1 id=\"nf-title\" class=\"title\">Page not found</h1></div></section><section class=\"section text-center\"><div class=\"wrap max-w-2xl\"><p class=\"lede muted\">The page you're looking for isn't here, but you're welcome to start from the beginning.</p><div class=\"mt-10\"><a class=\"btn\" href=\"index.html\">Return home</a></div></div></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

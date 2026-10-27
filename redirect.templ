@@ -1,0 +1,22 @@
+package main
+
+// Redirect renders a tiny page that immediately forwards to target.
+templ Redirect(title string, target string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<meta name="robots" content="noindex, follow"/>
+			<meta http-equiv="refresh" content={ "0; url=" + target }/>
+			<link rel="canonical" href="https://www.mychicagotherapy.com/index.html"/>
+			<title>{ title }</title>
+			<script>
+				window.location.replace(document.querySelector('meta[http-equiv="refresh"]').content.split('url=')[1]);
+			</script>
+		</head>
+		<body>
+			<p>Redirecting to <a href={ templ.SafeURL(target) }>My Chicago Therapy</a>…</p>
+		</body>
+	</html>
+}
