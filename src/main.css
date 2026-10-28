@@ -903,6 +903,18 @@ body[data-menu-open='true'] {
 	text-underline-offset: 0.2em;
 }
 
+/* Editorial line breaks in headings apply on wide screens only;
+   phones wrap headings naturally. */
+.br-md {
+	display: none;
+}
+
+@media (min-width: 48rem) {
+	.br-md {
+		display: inline;
+	}
+}
+
 /* Section header used inside the one-page layout */
 .section-head {
 	text-align: center;
