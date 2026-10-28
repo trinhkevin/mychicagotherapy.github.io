@@ -85,3 +85,27 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+/* Hash landing: enable smooth scrolling only after load, and re-align to the
+   #hash target once fonts and images have settled so the section heading is
+   not cut off by late layout shifts. */
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  function alignToHash() {
+    if (!location.hash || location.hash.length < 2) return;
+    var el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+  }
+  function ready() {
+    alignToHash();
+    root.setAttribute('data-ready', '');
+  }
+  if (document.readyState === 'complete') ready();
+  else window.addEventListener('load', ready);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () {
+      if (!root.hasAttribute('data-ready')) alignToHash();
+    });
+  }
+})();
