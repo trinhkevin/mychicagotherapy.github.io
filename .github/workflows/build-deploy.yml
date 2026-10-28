@@ -35,10 +35,10 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: "1.24"
-      - name: Install templ
-        run: go install github.com/a-h/templ/cmd/templ@latest
       - name: Generate templ
-        run: templ generate
+        # Use the exact templ version pinned in go.mod so the generated code
+        # always matches the runtime library.
+        run: go run github.com/a-h/templ/cmd/templ@$(go list -m -f '{{.Version}}' github.com/a-h/templ) generate
       - name: Build HTML
         run: go run .
       - name: Setup Pages
